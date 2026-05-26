@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .animate-pulse-ring {
+    animation: pulse-ring var(--duration, 1.5s) cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    will-change: box-shadow, opacity;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    perspective: 1000px;
+    -webkit-perspective: 1000px;
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 var(--pulse-color, #EE2046);
+    opacity: 1;
+  }
+
+  75% {
+    box-shadow: 0 0 0 12px var(--pulse-color, #EE2046);
+    opacity: 0;
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 var(--pulse-color, #EE2046);
+    opacity: 0;
+  }
+}
+
+@layer base {
+  :root {
+    --background: #ffffff;
+    --foreground: #111111;
+    --accent: #EE2046;
+    --brand: #41445B;
+
+    /* Neumorphic shadows — brand cards (base: #41445B) */
+    --neu-brand-raised: 8px 8px 20px #2b2e42, -8px -8px 20px #575b74;
+    --neu-brand-raised-sm: 4px 4px 12px #2e3147, -4px -4px 12px #545870;
+    --neu-brand-inset-sm: inset 3px 3px 8px #2e3147, inset -3px -3px 8px #545870;
+
+    /* Neumorphic shadows — light mode (base: #ffffff) */
+    --neu-raised: 8px 8px 20px #cacaca, -8px -8px 20px #ffffff;
+    --neu-raised-sm: 4px 4px 12px #d1d1d1, -4px -4px 12px #ffffff;
+    --neu-inset: inset 6px 6px 14px #cacaca, inset -6px -6px 14px #ffffff;
+    --neu-inset-sm: inset 3px 3px 8px #d1d1d1, inset -3px -3px 8px #ffffff;
+    --neu-accent-raised: 6px 6px 14px rgba(180, 0, 30, 0.35), -6px -6px 14px rgba(255, 110, 130, 0.25);
+    --neu-accent-inset: inset 4px 4px 10px rgba(180, 0, 30, 0.5), inset -4px -4px 10px rgba(255, 110, 130, 0.3);
+
+    /* Shadcn UI tokens */
+    --card: #ffffff;
+    --card-foreground: #111111;
+    --popover: #ffffff;
+    --popover-foreground: #111111;
+    --primary: #111111;
+    --primary-foreground: #ffffff;
+    --secondary: #f4f4f5;
+    --secondary-foreground: #111111;
+    --muted: #f4f4f5;
+    --muted-foreground: #71717a;
+    --border: #e4e4e7;
+    --input: #e4e4e7;
+    --ring: #EE2046;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* ── Shiny text animation ── */
+@keyframes shiny-sweep {
+  0% {
+    background-position: 200% center;
+  }
+
+  100% {
+    background-position: -200% center;
+  }
+}
+
+.shiny-text {
+  background: linear-gradient(120deg,
+      rgba(255, 255, 255, 0.45) 0%,
+      rgba(255, 255, 255, 0.45) 40%,
+      rgba(255, 255, 255, 0.95) 50%,
+      rgba(255, 255, 255, 0.45) 60%,
+      rgba(255, 255, 255, 0.45) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shiny-sweep 4s linear infinite;
+}

@@ -1,0 +1,10 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    // Uploads are public read (images, PDFs shown on the website)
+    match /uploads/{allPaths=**} {
+      allow read: if true;
+      allow write: if false; // all writes go through Admin SDK (server-side)
+    }
+  }
+}

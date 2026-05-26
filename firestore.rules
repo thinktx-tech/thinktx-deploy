@@ -1,0 +1,17 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Careers — public read of published, full access for server (Admin SDK bypasses rules)
+    match /careers/{doc} {
+      allow read: if resource.data.published == true;
+      allow write: if false; // all writes go through Admin SDK (server-side), not client SDK
+    }
+
+    // Learning Hub — same pattern
+    match /learning-hub/{doc} {
+      allow read: if resource.data.published == true;
+      allow write: if false;
+    }
+  }
+}

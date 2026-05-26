@@ -1,0 +1,130 @@
+import { motion } from "framer-motion";
+import Image from "next/image";
+import Navbar from "@/components/Navbar";
+import Info from "@/components/Info";
+import Services from "@/components/Services";
+import AboutUs from "@/components/AboutUs";
+import Industries from "@/components/Industries";
+import WhoWeServe from "@/components/WhoWeServe";
+import Footer from "@/components/Footer";
+import NeumorphicButton from "@/components/NeumorphicButton";
+
+export default function Home() {
+  return (
+    <div className="min-h-screen relative overflow-hidden bg-background">
+      <Navbar />
+
+      {/* HERO SECTION */}
+      <main className="relative min-h-screen overflow-hidden bg-background">
+
+        {/* Full-bleed background image */}
+        <Image
+          src="/Hero.png"
+          alt="ThinkTx Office"
+          fill
+          sizes="100vw"
+          className="object-cover object-center"
+          priority
+        />
+
+        {/* Left-to-right gradient — narrower coverage to reveal office logo */}
+        <div className="absolute inset-0 bg-gradient-to-r from-background from-[28%] via-background/50 via-[45%] to-transparent" />
+        {/* Top & bottom edge fade */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-transparent to-background/60" />
+
+        {/* Content — left aligned */}
+        <div className="relative max-w-7xl mx-auto px-8 md:px-12 flex flex-col justify-center min-h-screen">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.9, ease: "easeOut" }}
+            className="max-w-xl"
+          >
+            {/* Company logo */}
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.05 }}
+              className="mb-6"
+            >
+              <Image
+                src="/thinktx-logo.png"
+                alt="ThinkTx"
+                width={160}
+                height={48}
+                className="object-contain h-10 w-auto"
+              />
+            </motion.div>
+
+            {/* Eyebrow Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="inline-block py-1.5 px-4 rounded-full bg-accent/10 border border-accent/20 text-accent text-sm font-semibold mb-8 tracking-wide"
+            >
+              Registered with Ministry of Finance Malaysia
+            </motion.div>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.15 }}
+              className="text-5xl md:text-6xl xl:text-7xl font-extrabold tracking-tight mb-6 leading-[1.05]"
+            >
+              Redefining <br />
+              <span className="text-accent">Tax Excellence</span>
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.25 }}
+              className="text-lg text-foreground/60 mb-12 leading-relaxed"
+            >
+              We help SMEs, startups, and corporations navigate complexities with expert accounting, tax advisory, and business strategy solutions.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.35 }}
+              className="flex flex-col sm:flex-row items-start gap-4"
+            >
+              <NeumorphicButton isAccent={true}>Free Consultation</NeumorphicButton>
+              <NeumorphicButton isAccent={false} href="/services">Explore Services</NeumorphicButton>
+            </motion.div>
+          </motion.div>
+        </div>
+      </main>
+
+      {/* ABOUT US */}
+      <div className="relative z-10 bg-background">
+        <AboutUs />
+      </div>
+
+      {/* INFO / STATS */}
+      <div className="relative z-10 bg-background">
+        <Info />
+      </div>
+
+      {/* SERVICES BENTO GRID */}
+      <div className="relative z-10 bg-background">
+        <Services />
+      </div>
+
+      {/* INDUSTRIES */}
+      <div className="relative z-10 bg-background">
+        <Industries />
+      </div>
+
+      {/* WHO WE SERVE */}
+      <div className="relative z-10 bg-background">
+        <WhoWeServe />
+      </div>
+
+      {/* FOOTER */}
+      <Footer />
+    </div>
+  );
+}

@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__plugin_claude-mem_mcp-search__smart_outline",
+      "mcp__plugin_claude-mem_mcp-search__get_observations",
+      "Bash(sed -n '24,80p' /Users/Mandy/Developer/Projects/thinktx-revamp/src/pages/learning-hub/category/[slug].tsx)",
+      "mcp__plugin_claude-mem_mcp-search__smart_unfold",
+      "Bash(python3 -c ':*)",
+      "Bash(identify /Users/Mandy/Developer/Projects/thinktx-revamp/public/e2.png /Users/Mandy/Developer/Projects/thinktx-revamp/public/e3.png /Users/Mandy/Developer/Projects/thinktx-revamp/public/e4.png)",
+      "Bash(sips -g pixelWidth -g pixelHeight /Users/Mandy/Developer/Projects/thinktx-revamp/public/e2.png /Users/Mandy/Developer/Projects/thinktx-revamp/public/e3.png /Users/Mandy/Developer/Projects/thinktx-revamp/public/e4.png)",
+      "Bash(sed -i '' 's/\\) : \\(slug === \"webinar\" || slug === \"ibfd\"\\) ? \\(/\\) : \\(slug === \"webinar\" || slug === \"ibfd\" || slug === \"newspaper\"\\) ? \\(/' '/Users/Mandy/Developer/Projects/thinktx-revamp/src/pages/learning-hub/category/[slug].tsx')",
+      "Bash(sed -i '' 's|/\\\\* ── Portrait A4 grid for webinar / ibfd ── \\\\*/|/* ── Portrait A4 grid for webinar / ibfd / newspaper ── */|' '/Users/Mandy/Developer/Projects/thinktx-revamp/src/pages/learning-hub/category/[slug].tsx')",
+      "Bash(sed -i '' 's/const isPortraitType = item\\\\.category === \"webinar\" || item\\\\.category === \"ibfd\";/const isPortraitType = item.category === \"webinar\" || item.category === \"ibfd\" || item.category === \"newspaper\";/' '/Users/Mandy/Developer/Projects/thinktx-revamp/src/pages/learning-hub/[id].tsx')",
+      "Bash(sed -i '' 's/Back to {item\\\\.category === \"webinar\" ? \"Webinars\" : item\\\\.category === \"ibfd\" ? \"IBFD\" : \"Learning Hub\"}/Back to {item.category === \"webinar\" ? \"Webinars\" : item.category === \"ibfd\" ? \"IBFD\" : item.category === \"newspaper\" ? \"National Newspaper\" : \"Learning Hub\"}/' '/Users/Mandy/Developer/Projects/thinktx-revamp/src/pages/learning-hub/[id].tsx')",
+      "Bash(python3 -)",
+      "Bash(ls -la /Users/Mandy/Developer/Projects/thinktx-revamp/public/learning-hero*)",
+      "Bash(file /Users/Mandy/Developer/Projects/thinktx-revamp/public/learning-hero*)",
+      "Bash(pkill -f \"next dev\")",
+      "Bash(cat /Users/Mandy/Developer/Projects/thinktx-revamp/src/pages/learning-hub/[id].tsx)"
+    ]
+  }
+}
