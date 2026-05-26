@@ -127,7 +127,7 @@ export default function Home() {
                     style={{ "--pulse-color": "rgba(238,32,70,0.6)", "--duration": "1.5s" } as React.CSSProperties}
                   >
                     <span className="relative z-10 flex items-center gap-3">
-                      Free Consultation
+                      Book a Strategy Consultation
                       <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
                     </span>
                     <span className="absolute top-1/2 left-1/2 w-full h-full rounded-full bg-accent animate-pulse-ring -translate-x-1/2 -translate-y-1/2" />
