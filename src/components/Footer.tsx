@@ -44,7 +44,7 @@ export default function Footer({ hideCtaButton, hideContact }: { hideCtaButton?:
                                 style={{ "--pulse-color": "rgba(238,32,70,0.6)", "--duration": "1.5s" } as React.CSSProperties}
                             >
                                 <span className="relative z-10 inline-flex items-center gap-3">
-                                    Book a Free Consultation
+                                    Book a Strategy Consultation
                                     <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                                 </span>
                                 <span className="absolute top-1/2 left-1/2 w-full h-full rounded-2xl bg-accent animate-pulse-ring -translate-x-1/2 -translate-y-1/2" />
