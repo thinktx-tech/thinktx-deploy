@@ -54,6 +54,13 @@ const awards: Award[] = [
 
 const engagementEvents: EngagementEvent[] = [
     {
+        date: "08 July 2026",
+        title: "Monash University",
+        description:
+            "Our Tax Director was invited by Monash University to speak as a panelist, sharing insights on the growing role of AI in tax and accounting, and how technology is reshaping compliance, data analysis and professional advisory services.",
+        image: "/monash.jpg",
+    },
+    {
         date: "06 December 2025",
         title: "The Futurizts, RinggitPlus & CIMB",
         description:
