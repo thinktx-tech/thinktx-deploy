@@ -25,6 +25,12 @@ function isAuthed(req: NextApiRequest) {
     return req.headers.authorization === `Bearer ${TOKEN}`;
 }
 
+/* Sort by the entry's actual date (newest first), tie-breaking on createdAt. */
+function byDateDesc(a: any, b: any) {
+    const d = String(b.date || "").localeCompare(String(a.date || ""));
+    return d !== 0 ? d : (b.createdAt || 0) - (a.createdAt || 0);
+}
+
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     const db = adminDb();
 
@@ -35,16 +41,16 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             .get();
         const items = snap.docs
             .map((d) => ({ id: d.id, ...d.data() }))
-            .sort((a: any, b: any) => ((b.createdAt || 0) - (a.createdAt || 0)));
+            .sort(byDateDesc);
         return res.status(200).json(items);
     }
 
     /* ── Admin GET — return all items ── */
     if (req.method === "GET" && isAuthed(req)) {
-        const snap = await db.collection(COLLECTION)
-            .orderBy("createdAt", "desc")
-            .get();
-        const items = snap.docs.map((d) => ({ id: d.id, ...d.data() }));
+        const snap = await db.collection(COLLECTION).get();
+        const items = snap.docs
+            .map((d) => ({ id: d.id, ...d.data() }))
+            .sort(byDateDesc);
         return res.status(200).json(items);
     }
 

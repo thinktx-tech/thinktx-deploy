@@ -121,6 +121,28 @@ export default function LearningHubArticle({ item }: Props) {
                                 />
                             )}
 
+                            {item.content && item.content.replace(/<[^>]*>/g, "").trim() !== "" && (
+                                <div
+                                    className="rounded-2xl bg-background p-6 sm:p-8 mb-8"
+                                    style={{ boxShadow: "var(--neu-raised)" }}
+                                >
+                                    <div
+                                        className="text-[15px] md:text-base text-foreground/65 leading-[1.85]
+                                            [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:my-3
+                                            [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:my-3
+                                            [&_li]:my-1
+                                            [&_b]:font-bold [&_b]:text-foreground/80
+                                            [&_i]:italic [&_u]:underline
+                                            [&_p]:mb-4 [&_p:last-child]:mb-0
+                                            [&_h1]:text-2xl [&_h1]:font-bold [&_h1]:text-foreground [&_h1]:mb-4 [&_h1]:mt-8
+                                            [&_h2]:text-xl [&_h2]:font-bold [&_h2]:text-foreground [&_h2]:mb-3 [&_h2]:mt-6
+                                            [&_h3]:text-lg [&_h3]:font-bold [&_h3]:text-foreground [&_h3]:mb-2 [&_h3]:mt-4
+                                            [&_a]:text-accent [&_a]:underline [&_a]:hover:text-accent/80"
+                                        dangerouslySetInnerHTML={{ __html: formatHtml(item.content) }}
+                                    />
+                                </div>
+                            )}
+
                             <div className="flex flex-wrap gap-4">
                                 {item.attachment && (
                                     <a
